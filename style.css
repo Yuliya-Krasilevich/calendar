@@ -1,0 +1,111 @@
+*{padding:0;margin:0;border:0;}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+:focus,:active{outline:none;}
+a:focus,a:active{outline:none;}
+nav,footer,header,aside{display:block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display:none;}
+button{cursor:pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration:none;}
+a:hover{text-decoration:none;}
+ul li{list-style:none;}
+img{vertical-align:top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
+/* _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________*/
+
+.calendar__container {
+    margin: 20px 30px 0px 30px;
+    padding: 0px 15px 0px 0px;
+}
+.calendar__months {
+    padding: 70px 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+}
+
+.calendar__months ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.calendar__months ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.calendar__months .calendar__prev {
+    order: 1;
+    padding-top: 5px;
+}
+
+.calendar__months .calendar__next {
+    order: 3;
+    padding-top: 5px;
+}
+
+.calendar__month {
+    order: 2;
+    padding-bottom: 10px;
+}
+
+.calendar__numbers {
+    background-color: #ddd;
+
+}
+.calendar__weekdays {
+    margin: 0px 10px 0px 20px;
+    padding: 10px 0;
+}
+
+.calendar__weekdays li {
+    width: 13.6%;
+    display: inline-block; 
+    color: #666;
+    text-align: center;
+}
+
+.calendar__days {
+    padding: 10px 0;
+}
+
+.calendar__days li {
+    display: inline-block; 
+    width: 13.6%;
+    list-style-type: none;
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 5px 0px 5px 25px;
+    font-size:12px;
+    color: #777;
+}
+
+.calendar__days .calendar__active{
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    padding: 5px 0px 5px 25px;
+    background: #1abc9c;
+    color: azure !important;
+    font-weight: 700;
+
+}
+
+@media screen and (max-width: 720px) {
+    .calendar__weekdays li, .calendar__days li {width: 13.1%;}
+    .calendar__days .calendar__active{width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+    .calendar__weekdays li, .calendar__days li {width: 12.5%;}
+    .calendar__days .calendar__active{width: 12.5%;}
+}
+
+@media screen and (max-width: 290px) {
+    .calendar__weekdays li, .calendar__days li {width: 12.2%;}
+    .calendar__days .calendar__active{width: 12.2%;}
+}
