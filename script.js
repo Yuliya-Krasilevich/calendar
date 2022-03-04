@@ -11,6 +11,15 @@
         month: currentMonth,
         date: currentDate,
     }
+
+    drawCalendar(currentYear, currentMonth, currentMoment, calendar);
+    function drawCalendar(year, month, currentMoment, calendar) {
+        let dates = document.querySelector('.calendar__days');
+        let info = document.querySelector('.calendar__month');
+        drawDates(year, month, dates);
+        getMonthName(year, month, info);
+        showCurrentDate(currentYear, currentMonth, currentMoment);
+    }
     function drawDates(year, month, dates) {
         let arr = [];
         let firstDateOfMonth = 1;
@@ -102,14 +111,6 @@
         return date.getDay();
     }
 
-    drawCalendar(currentYear, currentMonth, currentMoment, calendar)
-    function drawCalendar(year, month, currentMoment, calendar) {
-        let dates = document.querySelector('.calendar__days');
-        let info = document.querySelector('.calendar__month');
-        drawDates(year, month, dates);
-        showInfo(year, month, info);
-        showCurrentDate(currentYear, currentMonth, currentMoment);
-    }
 
     function showCurrentDate(year, month, currentMoment) {
          if(year == currentMoment['year'] && month == currentMoment['month']) {
@@ -125,13 +126,14 @@
          }
     }
 }
-    function showInfo (year, month, elem) {
-        elem.innerHTML = getMonthName(month) + ' ' + year;
-    }
-    function getMonthName(num) {
+
+    function getMonthName (year, month, elem) {
         let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        return months[num]; 
+        elem.innerHTML = months[month] + ' ' + year;
+        return elem.innerHTML;
     }
+
+
 
     prev.addEventListener('click', function() {
         currentYear =  getPrevYear(currentYear, currentMonth);
