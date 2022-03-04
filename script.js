@@ -12,14 +12,36 @@
         date: currentDate,
     }
 
-    drawCalendar(currentYear, currentMonth, currentMoment, calendar);
-    function drawCalendar(year, month, currentMoment, calendar) {
+    drawCalendar(currentYear, currentMonth, currentMoment);
+
+    function drawCalendar(year, month, currentMoment) {
         let dates = document.querySelector('.calendar__days');
         let info = document.querySelector('.calendar__month');
         drawDates(year, month, dates);
         getMonthName(year, month, info);
         showCurrentDate(currentYear, currentMonth, currentMoment);
     }
+    function showCurrentDate(year, month, currentMoment) {
+        if(year == currentMoment['year'] && month == currentMoment['month']) {
+            li = document.querySelectorAll('li');
+            console.log(li);
+            for (let i = 0; i < li.length; i++) {
+                if (li[i].innerHTML == currentMoment['date']) {
+                   li[i].classList.add('calendar__active');
+                   break;
+                } else {
+                   console.log(false);
+                }
+            }
+        }
+    }
+
+   function getMonthName (year, month, elem) {
+       let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+       elem.innerHTML = months[month] + ' ' + year;
+       return elem.innerHTML;
+   }
+
     function drawDates(year, month, dates) {
         let arr = [];
         let firstDateOfMonth = 1;
@@ -33,18 +55,32 @@
         createTable(arr, dates);
     }
 
-    function createTable(arr, parent) {
-        parent.innerHTML = '';
-        for (let i = 0; i < arr.length; i++) {
-            let ul = document.createElement('ul');
-            for (let j = 0; j < arr[i].length; j++) {
-                let li = document.createElement('li');
-                li.innerHTML = arr[i][j];
-                ul.appendChild(li);
-            }
-            parent.appendChild(ul);
+    function getLastDayOfMonth(year, month) {
+        let date = new Date (year, month + 1, 0);
+        return date.getDate();
+    }
+
+    function getUnshiftElemsNum(year, month) {
+        let date = new Date (year, month, 1);
+        let day = date.getDay();
+        let realDay = getRealDayOfWeek(day);
+        return realDay - 1;
+    }
+    function getPushElemsNum(year, month) {
+        let date = new Date (year, month + 1, 0);
+        let day = date.getDay();
+        let realDay = getRealDayOfWeek(day);
+        return 7 - realDay;
+    }
+
+    function getRealDayOfWeek(jsNumOfDay) {
+        if (jsNumOfDay == 0) {
+            return 7;
+        } else {
+            return jsNumOfDay;
         }
     }
+
     function createArr(from, to) {
         let arr = [];
         for (let i = from; i <= to; i++) {
@@ -67,21 +103,6 @@
         return arr;
     }
 
-    function getLastDayOfMonth(year, month) {
-        let date = new Date (year, month + 1, 0);
-        return date.getDate();
-    }
-
-    function getUnshiftElemsNum(year, month) {
-        let day = getFirstWeekDayOfMonth(year, month);
-        let realDay = getRealDayOfWeek(day);
-        return realDay - 1;
-    }
-    function getPushElemsNum(year, month) {
-        let day = getLastWeekDayOfMonth(year, month);
-        let realDay = getRealDayOfWeek(day);
-        return 7 - realDay;
-    }
     function chunkArr(num, arr) {
         let result = [];
         let chunk = [];
@@ -92,47 +113,19 @@
         }
         return result;
     }
-
-    function getRealDayOfWeek(jsNumOfDay) {
-        if (jsNumOfDay == 0) {
-            return 7;
-        } else {
-            return jsNumOfDay;
+    
+    function createTable(arr, parent) {
+        parent.innerHTML = '';
+        for (let i = 0; i < arr.length; i++) {
+            let ul = document.createElement('ul');
+            for (let j = 0; j < arr[i].length; j++) {
+                let li = document.createElement('li');
+                li.innerHTML = arr[i][j];
+                ul.appendChild(li);
+            }
+            parent.appendChild(ul);
         }
     }
-
-    function getFirstWeekDayOfMonth(year, month) {
-        let date = new Date (year, month, 1);
-        return date.getDay();
-    }
-
-    function getLastWeekDayOfMonth(year, month) {
-        let date = new Date (year, month + 1, 0);
-        return date.getDay();
-    }
-
-
-    function showCurrentDate(year, month, currentMoment) {
-         if(year == currentMoment['year'] && month == currentMoment['month']) {
-             li = document.querySelectorAll('li');
-             console.log(li);
-             for (let i = 0; i < li.length; i++) {
-                 if (li[i].innerHTML == currentMoment['date']) {
-                    li[i].classList.add('calendar__active');
-                    break;
-                 } else {
-                    console.log(false);
-             }
-         }
-    }
-}
-
-    function getMonthName (year, month, elem) {
-        let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        elem.innerHTML = months[month] + ' ' + year;
-        return elem.innerHTML;
-    }
-
 
 
     prev.addEventListener('click', function() {
