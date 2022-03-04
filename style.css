@@ -13,14 +13,13 @@ a:hover{text-decoration:none;}
 ul li{list-style:none;}
 img{vertical-align:top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
-/* _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________*/
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ */
 
 .calendar__container {
-    margin: 20px 30px 0px 30px;
-    padding: 0px 15px 0px 0px;
+    margin: 20px 0px;
 }
 .calendar__months {
-    padding: 70px 25px;
+    padding: 70px 0px;
     width: 100%;
     background: #1abc9c;
     text-align: center;
@@ -40,12 +39,12 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
 
 .calendar__months .calendar__prev {
     order: 1;
-    padding-top: 5px;
+    padding: 0px 0px 5px 10px;
 }
 
 .calendar__months .calendar__next {
     order: 3;
-    padding-top: 5px;
+    padding: 0px 10px 5px 0px;
 }
 
 .calendar__month {
@@ -58,8 +57,8 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
 
 }
 .calendar__weekdays {
-    margin: 0px 10px 0px 20px;
-    padding: 10px 0;
+    padding: 10px 25px;
+    background-color:#ddd;
 }
 
 .calendar__weekdays li {
@@ -71,15 +70,15 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
 
 .calendar__days {
     padding: 10px 0;
+    padding-left: 25px;
 }
 
 .calendar__days li {
     display: inline-block; 
     width: 13.6%;
-    list-style-type: none;
     text-align: center;
     margin-bottom: 5px;
-    padding: 5px 0px 5px 25px;
+    padding: 5px 0px;
     font-size:12px;
     color: #777;
 }
@@ -88,7 +87,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
     display: inline-block;
     width: 13.6%;
     text-align: center;
-    padding: 5px 0px 5px 25px;
+    padding: 5px 0px;
     background: #1abc9c;
     color: azure !important;
     font-weight: 700;
