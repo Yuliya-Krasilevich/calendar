@@ -54,7 +54,7 @@ ________________________________________________________________________________
 
 .calendar__numbers {
     background-color: rgb(240, 238, 238);
-
+    height: 210px;
 }
 .calendar__weekdays {
     padding: 10px 25px;

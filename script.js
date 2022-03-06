@@ -23,7 +23,7 @@
     }
     function showCurrentDate(year, month, currentMoment) {
         if(year == currentMoment['year'] && month == currentMoment['month']) {
-            li = document.querySelectorAll('li');
+            let li = document.querySelectorAll('li');
             console.log(li);
             for (let i = 0; i < li.length; i++) {
                 if (li[i].innerHTML == currentMoment['date']) {
@@ -45,7 +45,8 @@
     function drawDates(year, month, dates) {
         let arr = [];
         let firstDateOfMonth = 1;
-        let lastDateOfMonth = getLastDayOfMonth(year, month);
+        let date2 = new Date (year, month + 1, 0);
+        let lastDateOfMonth = date2.getDate();
         let unshiftElemsNum = getUnshiftElemsNum(year, month);
         let pushElemsNum = getPushElemsNum(year, month);
         arr = createArr(firstDateOfMonth, lastDateOfMonth);
@@ -53,11 +54,6 @@
         arr = pushElems(pushElemsNum, '', arr);
         arr = chunkArr(7, arr);
         createTable(arr, dates);
-    }
-
-    function getLastDayOfMonth(year, month) {
-        let date = new Date (year, month + 1, 0);
-        return date.getDate();
     }
 
     function getUnshiftElemsNum(year, month) {
