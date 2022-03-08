@@ -10,7 +10,7 @@
         year: currentYear,
         month: currentMonth,
         date: currentDate,
-    }
+    };
 
     drawCalendar(currentYear, currentMonth, currentMoment);
 
@@ -20,7 +20,8 @@
         drawDates(year, month, dates);
         getMonthName(year, month, info);
         showCurrentDate(currentYear, currentMonth, currentMoment);
-    }
+    };
+
     function showCurrentDate(year, month, currentMoment) {
         if(year == currentMoment['year'] && month == currentMoment['month']) {
             let li = document.querySelectorAll('li');
@@ -34,13 +35,13 @@
                 }
             }
         }
-    }
+    };
 
    function getMonthName (year, month, elem) {
        let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
        elem.innerHTML = months[month] + ' ' + year;
        return elem.innerHTML;
-   }
+   };
 
     function drawDates(year, month, dates) {
         let arr = [];
@@ -54,28 +55,24 @@
         arr = pushElems(pushElemsNum, '', arr);
         arr = chunkArr(7, arr);
         createTable(arr, dates);
-    }
+    };
 
     function getUnshiftElemsNum(year, month) {
         let date = new Date (year, month, 1);
         let day = date.getDay();
         let realDay = getRealDayOfWeek(day);
         return realDay - 1;
-    }
+    };
     function getPushElemsNum(year, month) {
         let date = new Date (year, month + 1, 0);
         let day = date.getDay();
         let realDay = getRealDayOfWeek(day);
         return 7 - realDay;
-    }
+    };
 
     function getRealDayOfWeek(jsNumOfDay) {
-        if (jsNumOfDay == 0) {
-            return 7;
-        } else {
-            return jsNumOfDay;
-        }
-    }
+        return (jsNumOfDay == 0) ? 7 : jsNumOfDay;
+    };
 
     function createArr(from, to) {
         let arr = [];
@@ -83,21 +80,21 @@
             arr.push(i);
         }
         return arr;
-    }
+    };
 
     function unshiftElems(num, elem, arr) {
         for(let i = 0; i < num; i++) {
             arr.unshift(elem);
         }
         return arr;
-    }
+    };
 
     function pushElems(num, elem, arr) {
         for(let i = 0; i < num; i++) {
             arr.push(elem);
         }
         return arr;
-    }
+    };
 
     function chunkArr(num, arr) {
         let result = [];
@@ -108,7 +105,7 @@
             result.push(chunk)
         }
         return result;
-    }
+    };
     
     function createTable(arr, parent) {
         parent.innerHTML = '';
@@ -121,48 +118,32 @@
             }
             parent.appendChild(ul);
         }
-    }
+    };
 
 
     prev.addEventListener('click', function() {
         currentYear =  getPrevYear(currentYear, currentMonth);
         currentMonth =  getPrevMonth(currentMonth);
         drawCalendar(currentYear, currentMonth, currentMoment, calendar);
-    })
+    });
 
     function getPrevYear(year, month) {
-        if (month == 0) {
-            return year - 1;
-        } else {
-            return year;
-        }
-    }
+        return (month == 0) ? year - 1 : year;
+    };
     function getPrevMonth(month) {
-        if (month == 0) {
-            return 11;
-        } else {
-            return month - 1;
-        }
-    }
+        return (month == 0) ? 11 : month - 1;
+    };
 
     next.addEventListener('click', function() {
         currentYear =  getNextYear(currentYear, currentMonth);
         currentMonth =  getNextMonth(currentMonth);
         drawCalendar(currentYear, currentMonth, currentMoment, calendar);
-    })
+    });
 
     function getNextYear(year, month) {
-        if (month == 11) {
-            return year + 1;
-        } else {
-            return year;
-        }
-
-    }
+        return (month == 11) ? year + 1 : year;
+    };
+    
     function getNextMonth(month) {
-        if (month == 11) {
-            return 0;
-        } else {
-            return month + 1;
-        }
-    }
+        return (month == 11) ? 0 : month + 1;
+    };
