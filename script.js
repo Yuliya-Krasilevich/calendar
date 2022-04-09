@@ -25,7 +25,6 @@
     function showCurrentDate(year, month, currentMoment) {
         if(year == currentMoment['year'] && month == currentMoment['month']) {
             let li = document.querySelectorAll('li');
-            console.log(li);
             for (let i = 0; i < li.length; i++) {
                 if (li[i].innerHTML == currentMoment['date']) {
                    li[i].classList.add('calendar__active');
@@ -60,18 +59,14 @@
     function getUnshiftElemsNum(year, month) {
         let date = new Date (year, month, 1);
         let day = date.getDay();
-        let realDay = getRealDayOfWeek(day);
+        let realDay = (day == 0) ? 7 : day;
         return realDay - 1;
     };
     function getPushElemsNum(year, month) {
         let date = new Date (year, month + 1, 0);
         let day = date.getDay();
-        let realDay = getRealDayOfWeek(day);
+        let realDay = (day == 0) ? 7 : day;
         return 7 - realDay;
-    };
-
-    function getRealDayOfWeek(jsNumOfDay) {
-        return (jsNumOfDay == 0) ? 7 : jsNumOfDay;
     };
 
     function createArr(from, to) {
@@ -120,30 +115,15 @@
         }
     };
 
-
     prev.addEventListener('click', function() {
-        currentYear =  getPrevYear(currentYear, currentMonth);
-        currentMonth =  getPrevMonth(currentMonth);
+        currentYear =  (currentMonth == 0) ? currentYear - 1 : currentYear;
+        currentMonth =  (currentMonth == 0) ? 11 : currentMonth - 1;
         drawCalendar(currentYear, currentMonth, currentMoment, calendar);
     });
-
-    function getPrevYear(year, month) {
-        return (month == 0) ? year - 1 : year;
-    };
-    function getPrevMonth(month) {
-        return (month == 0) ? 11 : month - 1;
-    };
-
-    next.addEventListener('click', function() {
-        currentYear =  getNextYear(currentYear, currentMonth);
-        currentMonth =  getNextMonth(currentMonth);
-        drawCalendar(currentYear, currentMonth, currentMoment, calendar);
-    });
-
-    function getNextYear(year, month) {
-        return (month == 11) ? year + 1 : year;
-    };
     
-    function getNextMonth(month) {
-        return (month == 11) ? 0 : month + 1;
-    };
+    
+    next.addEventListener('click', function() {
+        currentYear =  (currentMonth == 11) ? currentYear + 1 : currentYear;
+        currentMonth =  (currentMonth == 11) ? 0 : currentMonth + 1;
+        drawCalendar(currentYear, currentMonth, currentMoment, calendar);
+    });
