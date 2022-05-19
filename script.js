@@ -2,10 +2,12 @@
     let currentYear = date.getFullYear();
     let currentMonth = date.getMonth();
     let currentDate = date.getDate();
+    let currentWeekDay = date.getDay();
     let calendar = document.querySelector('#calendar');
     let dates = document.querySelector('.calendar__weekdays');
     let prev = document.querySelector('.calendar__prev');
     let next = document.querySelector('.calendar__next');
+
     let currentMoment = {
         year: currentYear,
         month: currentMonth,
@@ -23,8 +25,8 @@
     };
 
     function showCurrentDate(year, month, currentMoment) {
+        let li = document.querySelectorAll('li');
         if(year == currentMoment['year'] && month == currentMoment['month']) {
-            let li = document.querySelectorAll('li');
             for (let i = 0; i < li.length; i++) {
                 if (li[i].innerHTML == currentMoment['date']) {
                    li[i].classList.add('calendar__active');
@@ -33,7 +35,7 @@
                    console.log(false);
                 }
             }
-        }
+        } 
     };
 
    function getMonthName (year, month, elem) {
@@ -45,13 +47,16 @@
     function drawDates(year, month, dates) {
         let arr = [];
         let firstDateOfMonth = 1;
-        let date2 = new Date (year, month + 1, 0);
-        let lastDateOfMonth = date2.getDate();
+        let lastDateOfMonth = new Date (year, month + 1, 0).getDate();
         let unshiftElemsNum = getUnshiftElemsNum(year, month);
         let pushElemsNum = getPushElemsNum(year, month);
+
         arr = createArr(firstDateOfMonth, lastDateOfMonth);
-        arr = unshiftElems(unshiftElemsNum, '', arr);
-        arr = pushElems(pushElemsNum, '', arr);
+        let previousDate = new Date(year, month, 0).getDate();
+        arr = unshiftElems(unshiftElemsNum, previousDate, arr);
+        let nextDate = new Date(year, month+1, 1).getDate();
+        arr = pushElems(pushElemsNum, nextDate, arr);
+
         arr = chunkArr(7, arr);
         createTable(arr, dates);
     };
@@ -69,6 +74,7 @@
         return 7 - realDay;
     };
 
+
     function createArr(from, to) {
         let arr = [];
         for (let i = from; i <= to; i++) {
@@ -79,14 +85,14 @@
 
     function unshiftElems(num, elem, arr) {
         for(let i = 0; i < num; i++) {
-            arr.unshift(elem);
+            arr.unshift(elem - i);
         }
         return arr;
     };
 
     function pushElems(num, elem, arr) {
-        for(let i = 0; i < num; i++) {
-            arr.push(elem);
+        for(let i = 1; i < num + 1; i++) {
+            arr.push(elem = i);
         }
         return arr;
     };
@@ -109,7 +115,7 @@
             for (let j = 0; j < arr[i].length; j++) {
                 let li = document.createElement('li');
                 li.innerHTML = arr[i][j];
-                ul.appendChild(li);
+                ul.appendChild(li); 
             }
             parent.appendChild(ul);
         }
