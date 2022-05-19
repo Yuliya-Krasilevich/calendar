@@ -15,8 +15,9 @@ img{vertical-align:top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ */
 
+
 .calendar__container {
-    margin-top: 20px;
+    margin: 20px;
 }
 .calendar__months {
     padding: 70px 0px;
@@ -39,20 +40,21 @@ ________________________________________________________________________________
 .calendar__months .calendar__prev {
     order: 1;
     padding: 0px 0px 5px 10px;
-    font-size: 5vh;
+    font-size: 2.5vw;
 }
 
 .calendar__months .calendar__prev:hover {
     cursor: pointer;
     order: 1;
     padding: 0px 0px 5px 10px;
+    font-size: 2.5vw;
     color: rgb(194, 194, 194);
 }
 
 .calendar__months .calendar__next {
     order: 3;
     padding: 0px 10px 5px 0px;
-    font-size: 5vh;
+    font-size: 2.5vw;
 }
 
 .calendar__months .calendar__next:hover {
@@ -60,13 +62,13 @@ ________________________________________________________________________________
     order: 3;
     padding: 0px 10px 5px 0px;
     color: rgb(194, 194, 194);
-    font-size: 5vh;
+    font-size: 2.5vw;
 }
 
 .calendar__month {
     order: 2;
     padding-bottom: -5px;
-    font-size: 5vh;
+    font-size: 2.5vw;
 }
 
 .calendar__numbers {
@@ -121,17 +123,32 @@ ________________________________________________________________________________
 }
 
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 890px) {
     .calendar__weekdays li, .calendar__days li {width: 13.1%;}
-    .calendar__days .calendar__active{width: 13.1%;}
+    .calendar__days .calendar__active {width: 13.1%;}
+    .calendar__months .calendar__prev {font-size: 3vw;}
+    .calendar__months .calendar__prev:hover {font-size: 3vw;}
+    .calendar__months .calendar__next {font-size: 3vw;}
+    .calendar__months .calendar__next:hover {font-size: 3vw;}
+    .calendar__month {font-size: 3vw;}
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 620px) {
     .calendar__weekdays li, .calendar__days li {width: 12.5%;}
-    .calendar__days .calendar__active{width: 12.5%;}
+    .calendar__days .calendar__active {width: 12.5%;}
+    .calendar__months .calendar__prev {font-size: 4vw;}
+    .calendar__months .calendar__prev:hover {font-size: 4vw;}
+    .calendar__months .calendar__next {font-size: 4vw;}
+    .calendar__months .calendar__next:hover {font-size: 4vw;}
+    .calendar__month {font-size: 4vw;}
 }
 
-@media screen and (max-width: 290px) {
+@media screen and (max-width: 300px) {
     .calendar__weekdays li, .calendar__days li {width: 12.2%;}
-    .calendar__days .calendar__active{width: 12.2%;}
+    .calendar__days .calendar__active {width: 12.2%;}
+    .calendar__months .calendar__prev {font-size: 6vw;}
+    .calendar__months .calendar__prev:hover {font-size: 6vw;}
+    .calendar__months .calendar__next {font-size: 6vw;}
+    .calendar__months .calendar__next:hover {font-size: 6vw;}
+    .calendar__month {font-size: 6vw;}
 }
