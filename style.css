@@ -73,7 +73,7 @@ ________________________________________________________________________________
 
 .calendar__numbers {
     background-color: rgb(240, 238, 238);
-    height: 250px;
+    height: 25rem;
 }
 .calendar__weekdays {
     padding: 10px 25px;
@@ -82,7 +82,7 @@ ________________________________________________________________________________
 
 .calendar__weekdays li {
     width: 13.6%;
-    font-size: 20px;
+    font-size: 1.5vw;
     display: inline-block; 
     color: #666;
     text-align: center;
@@ -97,9 +97,9 @@ ________________________________________________________________________________
     display: inline-block; 
     width: 13.6%;
     text-align: center;
-    margin-bottom: 5px;
-    padding: 5px 0px;
-    font-size: 15px;
+    margin-bottom: 1%;
+    padding: 0.2%;
+    font-size: 1.5vw;
     color: rgb(87, 87, 87);
 }
 
@@ -122,41 +122,64 @@ ________________________________________________________________________________
     font-weight: 700;
 }
 
+@media screen and (min-width: 1750px) {
+    .calendar__days li {font-size: 1.2vw; padding: 1%;}
+    .calendar__numbers {height: 42rem;}
+}
 
-@media screen and (max-width: 890px) {
-    .calendar__weekdays li, .calendar__days li {width: 13.1%;}
+@media screen and (min-width: 1451px){
+    .calendar__days li {font-size: 1.2vw; padding: 1%;}
+    .calendar__numbers {height: 37rem;}
+}
+
+@media screen and (min-width: 921px) and (max-width: 1450px) {
+    .calendar__days li {font-size: 1.3vw; padding: 1%;}
+    .calendar__numbers {height: 30rem;}
+}
+
+@media screen and (max-width: 920px) {
+    .calendar__weekdays li {width: 13.1%; font-size: 3vw;}
+    .calendar__days li {width: 13.1%; font-size: 3vw; margin-bottom: 3%; padding: 1.2%;}
     .calendar__days .calendar__active {width: 13.1%;}
     .calendar__months .calendar__prev {font-size: 3vw;}
     .calendar__months .calendar__prev:hover {font-size: 3vw;}
     .calendar__months .calendar__next {font-size: 3vw;}
     .calendar__months .calendar__next:hover {font-size: 3vw;}
-    .calendar__month {font-size: 3vw;}
+    .calendar__month {font-size: 4vw;}
+    .calendar__numbers {height: 37rem;}
 }
 
 @media screen and (max-width: 620px) {
-    .calendar__weekdays li, .calendar__days li {width: 12.5%;}
+    .calendar__weekdays li {width: 12.5%; font-size: 4.5vw;}
+    .calendar__days li {width: 12.5%; font-size: 4vw; margin-bottom: 6.5%; padding: 2%;}
     .calendar__days .calendar__active {width: 12.5%;}
     .calendar__months .calendar__prev {font-size: 4vw;}
     .calendar__months .calendar__prev:hover {font-size: 4vw;}
     .calendar__months .calendar__next {font-size: 4vw;}
     .calendar__months .calendar__next:hover {font-size: 4vw;}
-    .calendar__month {font-size: 4vw;}
+    .calendar__month {font-size: 5vw;}
+    .calendar__numbers {height: 38rem;}
 }
 
 @media screen and (max-width: 500px) {
-    .calendar__months .calendar__prev {font-size: 5vw;}
-    .calendar__months .calendar__prev:hover {font-size: 5vw;}
-    .calendar__months .calendar__next {font-size: 5vw;}
-    .calendar__months .calendar__next:hover {font-size: 5vw;}
-    .calendar__month {font-size: 5vw;}
-}
-
-@media screen and (max-width: 300px) {
-    .calendar__weekdays li, .calendar__days li {width: 12.2%;}
-    .calendar__days .calendar__active {width: 12.2%;}
+    .calendar__weekdays li {font-size: 6vw;}
+    .calendar__days li {font-size: 6vw; margin-bottom: 6.5%; padding: 2%;}
     .calendar__months .calendar__prev {font-size: 6vw;}
     .calendar__months .calendar__prev:hover {font-size: 6vw;}
     .calendar__months .calendar__next {font-size: 6vw;}
     .calendar__months .calendar__next:hover {font-size: 6vw;}
-    .calendar__month {font-size: 6vw;}
+    .calendar__month {font-size: 7vw;}
+    .calendar__numbers {height: 35rem;}
+}
+
+@media screen and (max-width: 300px) {
+    .calendar__weekdays li {width: 12.2%;}
+    .calendar__days li {width: 12.2%; margin-bottom: 10.5%; padding: 2%;}
+    .calendar__days .calendar__active {width: 12.2%;}
+    .calendar__months .calendar__prev {font-size: 7vw;}
+    .calendar__months .calendar__prev:hover {font-size: 7vw;}
+    .calendar__months .calendar__next {font-size: 7vw;}
+    .calendar__months .calendar__next:hover {font-size: 7vw;}
+    .calendar__month {font-size: 8vw;}
+    .calendar__numbers {height: 28rem;}
 }
