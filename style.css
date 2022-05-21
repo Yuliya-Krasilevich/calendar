@@ -83,6 +83,7 @@ ________________________________________________________________________________
 .calendar__weekdays li {
     width: 13.6%;
     font-size: 1.5vw;
+    margin-left: 0.3%;
     display: inline-block; 
     color: #666;
     text-align: center;
@@ -98,19 +99,15 @@ ________________________________________________________________________________
     width: 13.6%;
     text-align: center;
     margin-bottom: 1%;
+    margin-left: 0.3%;
     padding: 0.2%;
     font-size: 1.5vw;
     color: rgb(87, 87, 87);
 }
 
-.calendar__days .calendar__special-days {
-    display: inline-block; 
-    width: 13.6%;
-    text-align: center;
-    margin-bottom: 5px;
-    padding: 5px 0px;
-    color: rgb(233, 17, 17);
-}
+/* .calendar__days .calendar__special-days {
+
+} */
 
 .calendar__days .calendar__active{
     display: inline-block;
