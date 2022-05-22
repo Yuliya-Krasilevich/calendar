@@ -72,26 +72,31 @@ ________________________________________________________________________________
 }
 
 .calendar__numbers {
+    display: flex;
+    flex-direction: column;
     background-color: rgb(240, 238, 238);
     height: 25rem;
 }
 .calendar__weekdays {
-    padding: 10px 25px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    padding: 1% 1.6%;
     background-color:#ddd;
 }
 
 .calendar__weekdays li {
     width: 13.6%;
     font-size: 1.5vw;
-    margin-left: 0.3%;
-    display: inline-block; 
     color: #666;
     text-align: center;
 }
 
+
 .calendar__days {
-    padding: 10px 0;
-    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
 }
 
 .calendar__days li {
@@ -99,15 +104,12 @@ ________________________________________________________________________________
     width: 13.6%;
     text-align: center;
     margin-bottom: 1%;
-    margin-left: 0.3%;
+    margin-left: 0.6%;
     padding: 0.2%;
     font-size: 1.5vw;
     color: rgb(87, 87, 87);
 }
 
-/* .calendar__days .calendar__special-days {
-
-} */
 
 .calendar__days .calendar__active{
     display: inline-block;
@@ -135,8 +137,9 @@ ________________________________________________________________________________
 }
 
 @media screen and (max-width: 920px) {
+    .calendar__weekdays {padding: 1.5% 1.6%;}
     .calendar__weekdays li {width: 13.1%; font-size: 3vw;}
-    .calendar__days li {width: 13.1%; font-size: 3vw; margin-bottom: 3%; padding: 1.2%;}
+    .calendar__days li {width: 13.1%; font-size: 3vw; margin-bottom: 3%; margin-left: 1%;}
     .calendar__days .calendar__active {width: 13.1%;}
     .calendar__months .calendar__prev {font-size: 3vw;}
     .calendar__months .calendar__prev:hover {font-size: 3vw;}
@@ -147,8 +150,9 @@ ________________________________________________________________________________
 }
 
 @media screen and (max-width: 620px) {
+    .calendar__weekdays {padding: 1.8% 1.6%;}
     .calendar__weekdays li {width: 12.5%; font-size: 4.5vw;}
-    .calendar__days li {width: 12.5%; font-size: 4vw; margin-bottom: 6.5%; padding: 2%;}
+    .calendar__days li {width: 12.5%; font-size: 4vw; margin-bottom: 6.5%; padding: 2%; margin-left: 1.6%;}
     .calendar__days .calendar__active {width: 12.5%;}
     .calendar__months .calendar__prev {font-size: 4vw;}
     .calendar__months .calendar__prev:hover {font-size: 4vw;}
@@ -159,19 +163,22 @@ ________________________________________________________________________________
 }
 
 @media screen and (max-width: 500px) {
-    .calendar__weekdays li {font-size: 6vw;}
-    .calendar__days li {font-size: 6vw; margin-bottom: 6.5%; padding: 2%;}
+    .calendar__weekdays {padding: 2% 1.6%;}
+    .calendar__weekdays li {font-size: 6vw; }
+    .calendar__days li {font-size: 6vw; margin-bottom: 6.5%; padding: 2.5%; margin-left: 1.6%;}
     .calendar__months .calendar__prev {font-size: 6vw;}
     .calendar__months .calendar__prev:hover {font-size: 6vw;}
     .calendar__months .calendar__next {font-size: 6vw;}
     .calendar__months .calendar__next:hover {font-size: 6vw;}
     .calendar__month {font-size: 7vw;}
-    .calendar__numbers {height: 35rem;}
+    .calendar__numbers {height: 37rem;}
 }
 
+
 @media screen and (max-width: 300px) {
+    .calendar__weekdays {padding: 3% 1.6%;}
     .calendar__weekdays li {width: 12.2%;}
-    .calendar__days li {width: 12.2%; margin-bottom: 10.5%; padding: 2%;}
+    .calendar__days li {width: 12.2%; margin-bottom: 10.5%; padding: 2%; margin-left: 1.9%;}
     .calendar__days .calendar__active {width: 12.2%;}
     .calendar__months .calendar__prev {font-size: 7vw;}
     .calendar__months .calendar__prev:hover {font-size: 7vw;}
