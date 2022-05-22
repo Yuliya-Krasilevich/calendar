@@ -83,13 +83,15 @@
         return arr;
     };
 
+//add dates from previous month
     function unshiftElems(num, elem, arr) {
         for(let i = 0; i < num; i++) {
             arr.unshift(elem - i);
         }
         return arr;
     };
-
+    
+//add dates from next month
     function pushElems(num, elem, arr) {
         for(let i = 1; i < num + 1; i++) {
             arr.push(elem = i);
@@ -97,6 +99,7 @@
         return arr;
     };
 
+//makes 7 arrays from one array
     function chunkArr(num, arr) {
         let result = [];
         let chunk = [];
