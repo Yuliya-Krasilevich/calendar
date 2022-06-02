@@ -92,48 +92,51 @@ ________________________________________________________________________________
     text-align: center;
 }
 
-
-.calendar__days {
-    display: flex;
-    flex-direction: column;
+.calendar__days{
     padding: 1%;
+    font-size: 0;
 }
 
-.calendar__days li {
-    display: inline-block; 
+.calendar__current li{
+    display: inline-block;
     width: 13.6%;
     text-align: center;
     margin-bottom: 1%;
     margin-left: 0.6%;
     padding: 0.2%;
     font-size: 1.5vw;
-    color: rgb(87, 87, 87);
+    color: rgb(71, 70, 70);
 }
 
 
 .calendar__days .calendar__active{
-    display: inline-block;
-    width: 13.6%;
     text-align: center;
-    padding: 5px 0px;
     background: #1abc9c;
     color: azure !important;
     font-weight: 700;
 }
+
+
+
+.calendar__prev-and-next-days{
+
+    color: rgb(165, 161, 161) !important;
+}
+
 
 @media screen and (min-width: 1750px) {
     .calendar__days li {font-size: 1.2vw; padding: 1%;}
     .calendar__numbers {height: 42rem;}
 }
 
-@media screen and (min-width: 1451px){
+@media screen and (min-width: 1351px){
     .calendar__days li {font-size: 1.2vw; padding: 1%;}
     .calendar__numbers {height: 37rem;}
 }
 
-@media screen and (min-width: 921px) and (max-width: 1450px) {
+@media screen and (min-width: 921px) and (max-width: 1350px) {
     .calendar__days li {font-size: 1.3vw; padding: 1%;}
-    .calendar__numbers {height: 30rem;}
+    .calendar__numbers {height: 28rem;}
 }
 
 @media screen and (max-width: 920px) {

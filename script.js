@@ -22,7 +22,63 @@
         drawDates(year, month, dates);
         getMonthName(year, month, info);
         showCurrentDate(currentYear, currentMonth, currentMoment);
-    };
+
+
+    function drawDates(year, month, dates) {
+        let arr = [];
+        let firstDateOfMonth = 1;
+        let lastDateOfMonth = new Date (year, month + 1, 0).getDate();
+        let unshiftElemsNum = getUnshiftElemsNum(year, month);
+        let pushElemsNum = getPushElemsNum(year, month);
+        arr = createArr(firstDateOfMonth, lastDateOfMonth);
+
+        let previousDate = new Date(year, month, 0).getDate();
+        arr = unshiftElems(unshiftElemsNum, previousDate, arr);
+        let nextDate = new Date(year, month+1, 1).getDate();
+        arr = pushElems(pushElemsNum, nextDate, arr);
+        arr = chunkArr(7, arr);
+
+        dates.innerHTML = '';
+        let prev = arr[0];
+        let ul1 = document.createElement('ul');
+        ul1.classList.toggle('calendar__current');
+            for (let i = 0; i < prev.length ; i++) {
+                let li = document.createElement('li');
+                li.innerHTML = prev[i];
+                ul1.appendChild(li);
+                if (Number(ul1.childNodes[0].innerHTML) >= 23 && Number(ul1.childNodes[0].innerHTML) <=31) {
+                    if(Number(li.innerHTML) >=23 && Number(li.innerHTML) <=31) {
+                        li.classList.add('calendar__prev-and-next-days');
+                    }
+                }
+            }
+        dates.appendChild(ul1);
+
+            for (let i = 1; i < arr.length-1; i++) {
+                let ul = document.createElement('ul');
+                ul.classList.toggle('calendar__current');
+                for (let j = 0; j < arr[i].length; j++) {
+                    let li = document.createElement('li');
+                    li.innerHTML = arr[i][j];
+                    ul.appendChild(li);
+                }
+                dates.appendChild(ul);
+            }
+        
+        let next = arr.pop();
+        let ul2 = document.createElement('ul');
+        ul2.classList.toggle('calendar__current');
+            for (let i = 0; i < next.length ; i++) {
+                let li = document.createElement('li');
+                li.innerHTML = next[i];
+                ul2.appendChild(li);
+                    if(Number(li.innerHTML) <= 6 && Number(li.innerHTML) >= 1) {
+                        li.classList.add('calendar__prev-and-next-days');
+                    }
+            }
+            dates.appendChild(ul2);
+    }
+}
 
     function showCurrentDate(year, month, currentMoment) {
         let li = document.querySelectorAll('li');
@@ -44,22 +100,7 @@
        return elem.innerHTML;
    };
 
-    function drawDates(year, month, dates) {
-        let arr = [];
-        let firstDateOfMonth = 1;
-        let lastDateOfMonth = new Date (year, month + 1, 0).getDate();
-        let unshiftElemsNum = getUnshiftElemsNum(year, month);
-        let pushElemsNum = getPushElemsNum(year, month);
 
-        arr = createArr(firstDateOfMonth, lastDateOfMonth);
-        let previousDate = new Date(year, month, 0).getDate();
-        arr = unshiftElems(unshiftElemsNum, previousDate, arr);
-        let nextDate = new Date(year, month+1, 1).getDate();
-        arr = pushElems(pushElemsNum, nextDate, arr);
-
-        arr = chunkArr(7, arr);
-        createTable(arr, dates);
-    };
 
     function getUnshiftElemsNum(year, month) {
         let date = new Date (year, month, 1);
@@ -110,19 +151,7 @@
         }
         return result;
     };
-    
-    function createTable(arr, parent) {
-        parent.innerHTML = '';
-        for (let i = 0; i < arr.length; i++) {
-            let ul = document.createElement('ul');
-            for (let j = 0; j < arr[i].length; j++) {
-                let li = document.createElement('li');
-                li.innerHTML = arr[i][j];
-                ul.appendChild(li); 
-            }
-            parent.appendChild(ul);
-        }
-    };
+
 
     prev.addEventListener('click', function() {
         currentYear =  (currentMonth == 0) ? currentYear - 1 : currentYear;
