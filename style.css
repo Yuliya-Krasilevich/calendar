@@ -92,6 +92,10 @@ ________________________________________________________________________________
     text-align: center;
 }
 
+.weekend {
+    font-weight: 700;
+}
+
 .calendar__days{
     padding: 1%;
     font-size: 0;
@@ -124,17 +128,17 @@ ________________________________________________________________________________
 
 
 @media screen and (min-width: 1750px) {
-    .calendar__days li {font-size: 1.2vw; padding: 1%;}
+    .calendar__days li {font-size: 1.3vw; padding: 1%;}
     .calendar__numbers {height: 42rem;}
 }
 
 @media screen and (min-width: 1351px){
-    .calendar__days li {font-size: 1.2vw; padding: 1%;}
+    .calendar__days li {font-size: 1.4vw; padding: 1%;}
     .calendar__numbers {height: 37rem;}
 }
 
 @media screen and (min-width: 921px) and (max-width: 1350px) {
-    .calendar__days li {font-size: 1.3vw; padding: 1%;}
+    .calendar__days li {font-size: 1.4vw; padding: 1%;}
     .calendar__numbers {height: 28rem;}
 }
 

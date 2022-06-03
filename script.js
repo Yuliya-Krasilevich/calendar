@@ -34,7 +34,7 @@ function drawDates(year, month, dates) {
 
     let previousMonth = new Date(year, month, 0).getDate();
     arr = unshiftElems(unshiftElemsNum, previousMonth, arr);
-    let nextMonth = new Date(year, month+1, 1).getDate();
+    let nextMonth = new Date(year, month + 1, 1).getDate();
     arr = pushElems(pushElemsNum, nextMonth, arr);
     arr = chunkArr(7, arr);
 
